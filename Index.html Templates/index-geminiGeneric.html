@@ -1,5 +1,3 @@
-html
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +6,7 @@ html
     <title>My Computer Science Portfolio</title>
     <style>
         /* --- DESIGN SYSTEM (Colors & Fonts) --- */
+        /* Default: Cool Dark Theme Colors */
         :root {
             --bg-color: #0f172a;       /* Deep slate/black background */
             --card-bg: #1e293b;        /* Slightly lighter slate for boxes */
@@ -15,12 +14,29 @@ html
             --text-muted: #94a3b8;     /* Muted gray for body text */
             --accent: #38bdf8;         /* Tech blue / Electric cyan accent */
             --accent-hover: #0ea5e9;   /* Darker blue for hover states */
+            --border-color: #334155;   /* Subtle dark mode divider lines */
+            --toggle-bg: #334155;      /* Switch track color in dark mode */
         }
 
+        /* Light Theme Color Modifiers */
+        [data-theme="light"] {
+            --bg-color: #f8fafc;       /* Bright light background */
+            --card-bg: #ffffff;        /* Crisp white for boxes */
+            --text-main: #0f172a;      /* Deep slate dark text */
+            --text-muted: #64748b;     /* Muted dark gray text */
+            --accent: #0284c7;         /* Strong professional blue accent */
+            --accent-hover: #0369a1;   /* Deeper blue for hover states */
+            --border-color: #e2e8f0;   /* Light gray divider lines */
+            --toggle-bg: #cbd5e1;      /* Switch track color in light mode */
+        }
+
+        /* Global Layout Adjustments */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            /* Smoothly animates colors when flipping the theme toggle switch */
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
         }
 
         body {
@@ -36,11 +52,65 @@ html
             margin: 0 auto;
         }
 
-        /* --- HEADER SECTION --- */
+        /* --- THEME TOGGLE SWITCH STYLING --- */
+        .toggle-container {
+            display: flex;
+            justify-content: flex-end;
+            padding-top: 10px;
+        }
+
+        .theme-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+        }
+
+        .theme-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--toggle-bg);
+            border-radius: 34px;
+            transition: 0.3s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        /* Changes the track color when the checkbox is active */
+        input:checked + .slider {
+            background-color: var(--accent);
+        }
+
+        /* Moves the white toggle circle to the right when active */
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+
+        /* --- HEADER STYLES --- */
         header {
             text-align: center;
-            padding: 40px 0;
-            border-bottom: 1px solid #334155;
+            padding: 20px 0 40px 0;
+            border-bottom: 1px solid var(--border-color);
         }
 
         header h1 {
@@ -55,7 +125,6 @@ html
             letter-spacing: 1px;
         }
 
-        /* --- SOCIAL / CONTACT LINKS --- */
         .links {
             margin-top: 15px;
         }
@@ -72,10 +141,10 @@ html
             color: var(--accent);
         }
 
-        /* --- SECTION TITLES --- */
+        /* --- LAYOUT SECTIONS --- */
         section {
             padding: 40px 0;
-            border-bottom: 1px solid #334155;
+            border-bottom: 1px solid var(--border-color);
         }
 
         section h2 {
@@ -87,13 +156,14 @@ html
             padding-bottom: 5px;
         }
 
-        /* --- EDUCATION & SKILLS LAYOUT --- */
+        /* --- RESUME & SKILLS STYLES --- */
         .resume-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 20px;
         }
 
+        /* Shifts into two columns on computer monitors */
         @media (min-width: 768px) {
             .resume-grid {
                 grid-template-columns: 2fr 1fr;
@@ -117,6 +187,7 @@ html
 
         .skills-list li {
             background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
             padding: 8px 12px;
             margin-bottom: 8px;
             border-left: 4px solid var(--accent);
@@ -124,13 +195,14 @@ html
             font-size: 0.9rem;
         }
 
-        /* --- PROJECTS GRID --- */
+        /* --- PROJECTS GRID STYLES --- */
         .projects-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 20px;
         }
 
+        /* Displays cards in pairs when space allows */
         @media (min-width: 600px) {
             .projects-grid {
                 grid-template-columns: 1fr 1fr;
@@ -139,18 +211,20 @@ html
 
         .project-card {
             background-color: var(--card-bg);
-            border: 1px solid #334155;
+            border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 25px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.2s, border-color 0.2s;
+            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
         }
 
+        /* Adds a subtle floating effect when hovering mouse over cards */
         .project-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .project-card h3 {
@@ -175,7 +249,7 @@ html
         .project-link {
             display: inline-block;
             background-color: var(--accent);
-            color: #0f172a;
+            color: #ffffff;
             text-decoration: none;
             padding: 8px 16px;
             border-radius: 4px;
@@ -185,11 +259,15 @@ html
             transition: background-color 0.2s;
         }
 
+        /* Adjusts main button color contrast when viewing in dark mode */
+        body:not([data-theme="light"]) .project-link {
+            color: #0f172a;
+        }
+
         .project-link:hover {
             background-color: var(--accent-hover);
         }
 
-        /* --- FOOTER --- */
         footer {
             text-align: center;
             padding: 40px 0;
@@ -198,9 +276,18 @@ html
         }
     </style>
 </head>
+
 <body>
 
     <div class="container">
+
+        <!-- THEME TOGGLE COMPONENT -->
+        <div class="toggle-container">
+            <label class="theme-switch" aria-label="Toggle between dark and light mode">
+                <input type="checkbox" id="theme-toggle-checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
 
         <!-- HEADER SECTION -->
         <header>
@@ -211,8 +298,8 @@ html
             <div class="links">
                 <!-- STUDENT TODO: Update URLs with your own links -->
                 <a href="mailto:your.email@email.com">Email</a> | 
-                <a href="https://github.com/yourusername" target="_blank">GitHub</a> | 
-                <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+                <a href="https://github.com" target="_blank">GitHub</a> | 
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
             </div>
         </header>
 
@@ -230,7 +317,7 @@ html
                         <p>Relevant Coursework: Introduction to Computer Science (Python), Data Structures, Calculus I.</p>
                     </div>
                     
-                    <!-- NOTE FOR STUDENTS: You can copy/paste the "edu-item" block above right here 
+                    <!-- NOTE FOR STUDENTS: You can copy/paste another "edu-item" block right here 
                          when you transfer to a 4-year University later on! -->
                 </div>
 
@@ -264,22 +351,28 @@ html
                         <p>A command-line interface calculator application capable of handling basic arithmetic and advanced logarithmic functions.</p>
                     </div>
                     <!-- STUDENT TODO: Link to your GitHub repository for this specific project -->
-                    <a href="https://github.com/yourusername/project-repo" class="project-link" target="_blank">View Code</a>
+                    <a href="https://github.com/project-repo" class="project-link" target="_blank">View Code</a>
                 </div>
 
                 <!-- PROJECT 2 -->
                 <div class="project-card">
                     <div>
+                        <!-- STUDENT TODO: Change project title -->
                         <h3>Number Guessing Game</h3>
+                        <!-- STUDENT TODO: Change tech stack used -->
                         <div class="project-tech">Python / Random Module</div>
+                        <!-- STUDENT TODO: Write a brief description of what the project does -->
                         <p>An interactive terminal-based game where users guess a computer-generated random number with logic constraints and a score counter.</p>
                     </div>
-                    <a href="https://github.com/yourusername/project-repo" class="project-link" target="_blank">View Code</a>
+                    <!-- STUDENT TODO: Link to your GitHub repository for this specific project -->
+                    <a href="https://github.com/project-repo" class="project-link" target="_blank">View Code</a>
                 </div>
 
-                <!-- PROJECT 3 -->
+
+<!-- PROJECT 3 -->
                 <div class="project-card">
                     <div>
+                        <!-- STUDENT TODO: Change project title when ready -->
                         <h3>Project 3 (Coming Soon)</h3>
                         <div class="project-tech">Python / Future Tech</div>
                         <p>This is a placeholder for your upcoming Python programming project. Keep building your skills to fill this space!</p>
@@ -290,6 +383,7 @@ html
                 <!-- PROJECT 4 -->
                 <div class="project-card">
                     <div>
+                        <!-- STUDENT TODO: Change project title when ready -->
                         <h3>Project 4 (Coming Soon)</h3>
                         <div class="project-tech">Python / Future Tech</div>
                         <p>This is a placeholder for your upcoming Python programming project. Keep building your skills to fill this space!</p>
@@ -301,4 +395,36 @@ html
         </section>
 
         <!-- FOOTER SECTION -->
+        <footer>
+            <p>&copy; 2026 [Your Name]. Built with HTML & CSS.</p>
+        </footer>
 
+    </div>
+
+    <!-- JAVASCRIPT FOR LIGHT/DARK MODE FUNCTIONALITY -->
+    <script>
+        const toggleCheckbox = document.getElementById('theme-toggle-checkbox');
+        const currentTheme = localStorage.getItem('theme');
+
+        // Check the browser local storage for any existing theme preference
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'light') {
+                toggleCheckbox.checked = true;
+            }
+        }
+
+        // Monitors the switch box and applies the matching theme system variables
+        toggleCheckbox.addEventListener('change', function(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
+
+</body>
+</html>
