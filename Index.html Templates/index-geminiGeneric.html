@@ -1,0 +1,304 @@
+html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Computer Science Portfolio</title>
+    <style>
+        /* --- DESIGN SYSTEM (Colors & Fonts) --- */
+        :root {
+            --bg-color: #0f172a;       /* Deep slate/black background */
+            --card-bg: #1e293b;        /* Slightly lighter slate for boxes */
+            --text-main: #f8fafc;      /* Crisp white for headings */
+            --text-muted: #94a3b8;     /* Muted gray for body text */
+            --accent: #38bdf8;         /* Tech blue / Electric cyan accent */
+            --accent-hover: #0ea5e9;   /* Darker blue for hover states */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* --- HEADER SECTION --- */
+        header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid #334155;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* --- SOCIAL / CONTACT LINKS --- */
+        .links {
+            margin-top: 15px;
+        }
+
+        .links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .links a:hover {
+            color: var(--accent);
+        }
+
+        /* --- SECTION TITLES --- */
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid #334155;
+        }
+
+        section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            display: inline-block;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 5px;
+        }
+
+        /* --- EDUCATION & SKILLS LAYOUT --- */
+        .resume-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .resume-grid {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+
+        .edu-item h3 {
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .edu-item .meta {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .skills-list {
+            list-style: none;
+        }
+
+        .skills-list li {
+            background-color: var(--card-bg);
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            border-left: 4px solid var(--accent);
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        /* --- PROJECTS GRID --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .projects-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .project-card h3 {
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .project-tech {
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-family: monospace;
+            margin-bottom: 15px;
+        }
+
+        .project-link {
+            display: inline-block;
+            background-color: var(--accent);
+            color: #0f172a;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-align: center;
+            transition: background-color 0.2s;
+        }
+
+        .project-link:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- HEADER SECTION -->
+        <header>
+            <!-- STUDENT TODO: Change to your actual name -->
+            <h1>[Your Name]</h1>
+            <p>Aspiring Software Engineer & Computer Science Student</p>
+            
+            <div class="links">
+                <!-- STUDENT TODO: Update URLs with your own links -->
+                <a href="mailto:your.email@email.com">Email</a> | 
+                <a href="https://github.com/yourusername" target="_blank">GitHub</a> | 
+                <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+            </div>
+        </header>
+
+        <!-- RESUME / EDUCATION & SKILLS SECTION -->
+        <section id="resume">
+            <h2>Education & Skills</h2>
+            <div class="resume-grid">
+                
+                <!-- Left Column: Education -->
+                <div class="education">
+                    <div class="edu-item">
+                        <!-- STUDENT TODO: Update with your community college name and dates -->
+                        <h3>Associate of Science in Computer Science</h3>
+                        <div class="meta">Your Community College | Expected Graduation: 202X</div>
+                        <p>Relevant Coursework: Introduction to Computer Science (Python), Data Structures, Calculus I.</p>
+                    </div>
+                    
+                    <!-- NOTE FOR STUDENTS: You can copy/paste the "edu-item" block above right here 
+                         when you transfer to a 4-year University later on! -->
+                </div>
+
+                <!-- Right Column: Skills -->
+                <div class="skills">
+                    <ul class="skills-list">
+                        <!-- STUDENT TODO: Update this list as you learn more technologies -->
+                        <li>Python (Core Concepts)</li>
+                        <li>Git & GitHub</li>
+                        <li>Basic HTML / CSS</li>
+                        <li>Problem Solving</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION (Set up for 4 projects) -->
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+
+                <!-- PROJECT 1 -->
+                <div class="project-card">
+                    <div>
+                        <!-- STUDENT TODO: Change project title -->
+                        <h3>Python Calculator</h3>
+                        <!-- STUDENT TODO: Change tech stack used -->
+                        <div class="project-tech">Python / Math Module</div>
+                        <!-- STUDENT TODO: Write a brief description of what the project does -->
+                        <p>A command-line interface calculator application capable of handling basic arithmetic and advanced logarithmic functions.</p>
+                    </div>
+                    <!-- STUDENT TODO: Link to your GitHub repository for this specific project -->
+                    <a href="https://github.com/yourusername/project-repo" class="project-link" target="_blank">View Code</a>
+                </div>
+
+                <!-- PROJECT 2 -->
+                <div class="project-card">
+                    <div>
+                        <h3>Number Guessing Game</h3>
+                        <div class="project-tech">Python / Random Module</div>
+                        <p>An interactive terminal-based game where users guess a computer-generated random number with logic constraints and a score counter.</p>
+                    </div>
+                    <a href="https://github.com/yourusername/project-repo" class="project-link" target="_blank">View Code</a>
+                </div>
+
+                <!-- PROJECT 3 -->
+                <div class="project-card">
+                    <div>
+                        <h3>Project 3 (Coming Soon)</h3>
+                        <div class="project-tech">Python / Future Tech</div>
+                        <p>This is a placeholder for your upcoming Python programming project. Keep building your skills to fill this space!</p>
+                    </div>
+                    <a href="#" class="project-link">Coming Soon</a>
+                </div>
+
+                <!-- PROJECT 4 -->
+                <div class="project-card">
+                    <div>
+                        <h3>Project 4 (Coming Soon)</h3>
+                        <div class="project-tech">Python / Future Tech</div>
+                        <p>This is a placeholder for your upcoming Python programming project. Keep building your skills to fill this space!</p>
+                    </div>
+                    <a href="#" class="project-link">Coming Soon</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FOOTER SECTION -->
+
