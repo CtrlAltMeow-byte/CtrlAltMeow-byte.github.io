@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Your Name | Python Portfolio</title>
+
+<style>
+
+:root {
+    --bg-color: #f4f7fa;
+    --card-color: #ffffff;
+    --text-color: #222;
+    --accent: #3776ab;
+    --accent-secondary: #ffd43b;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+body.dark {
+    --bg-color: #0f172a;
+    --card-color: #1e293b;
+    --text-color: #f8fafc;
+    --accent: #4fa3ff;
+    --accent-secondary: #ffd43b;
+    --shadow: rgba(255,255,255,0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all .3s ease;
+    line-height: 1.6;
+}
+
+/* HEADER */
+
+header {
+    background: linear-gradient(135deg, #3776ab, #1f4f7a);
+    color: white;
+    text-align: center;
+    padding: 4rem 1rem;
+}
+
+header h1 {
+    font-size: 3rem;
+}
+
+header p {
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+/* THEME TOGGLE */
+
+.top-bar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px;
+}
+
+.switch {
+    position: relative;
+    width: 60px;
+    height: 34px;
+    display: inline-block;
+}
+
+.switch input {
+    opacity: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: .4s;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background: white;
+    border-radius: 50%;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--accent);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* LAYOUT */
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 2rem 0;
+}
+
+section {
+    margin-bottom: 2.5rem;
+}
+
+h2 {
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.card {
+    background: var(--card-color);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+.card ul {
+    padding-left: 20px;
+}
+
+.grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.project-card {
+    background: var(--card-color);
+    padding: 1.25rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px var(--shadow);
+    transition: transform .2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card h3 {
+    color: var(--accent);
+    margin-bottom: .5rem;
+}
+
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.badge {
+    background: var(--accent);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: .9rem;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!-- DARK / LIGHT MODE TOGGLE -->
+
+<div class="top-bar">
+
+<label class="switch">
+<input type="checkbox" id="themeToggle">
+<span class="slider"></span>
+</label>
+
+</div>
+
+<header>
+
+<h1>🐍 Your Name Here</h1>
+
+<p>
+Computer Science Student | Python Programmer | Future Software Developer
+</p>
+
+</header>
+
+<div class="container">
+
+<!-- ABOUT ME -->
+
+<section>
+
+<h2>About Me</h2>
+
+<div class="card">
+
+<p>
+Introduce yourself here. What sparked your interest in
+Computer Science? What do you enjoy building in Python?
+What are your career goals?
+</p>
+
+</div>
+
+</section>
+
+<!-- EDUCATION -->
+
+<section>
+
+<h2>Education</h2>
+
+<div class="card">
+
+<h3>Your Community College</h3>
+
+<p>Associate Degree in Computer Science</p>
+
+<p>Expected Graduation: Month Year</p>
+
+<br>
+
+<h3>Future Transfer University</h3>
+
+<p>
+Add university information when you transfer.
+</p>
+
+</div>
+
+</section>
+
+<!-- PYTHON JOURNEY -->
+
+<section>
+
+<h2>Python Journey</h2>
+
+<div class="card">
+
+<ul>
+<li>✅ Variables and Data Types</li>
+<li>✅ Input and Output</li>
+<li>✅ Conditional Statements</li>
+<li>✅ Loops</li>
+<li>✅ Functions</li>
+<li>⬜ Lists and Dictionaries</li>
+<li>⬜ File Processing</li>
+<li>⬜ Object-Oriented Programming</li>
+<li>⬜ Python Libraries</li>
+</ul>
+
+</div>
+
+</section>
+
+<!-- TECHNICAL SKILLS -->
+
+<section>
+
+<h2>Technical Skills</h2>
+
+<div class="card">
+
+<ul>
+<li>Python</li>
+<li>Git & GitHub</li>
+<li>Problem Solving</li>
+<li>Debugging</li>
+<li>Command Line Basics</li>
+<li>Add New Skills As You Learn Them</li>
+</ul>
+
+</div>
+
+</section>
+
+<!-- BADGES -->
+
+<section>
+
+<h2>Python Achievement Badges</h2>
+
+<div class="card">
+
+<div class="badges">
+
+<span class="badge">🐍 First Program</span>
+<span class="badge">🔄 Loop Master</span>
+<span class="badge">⚙️ Function Builder</span>
+<span class="badge">📁 File Handler</span>
+<span class="badge">🏗 OOP Explorer</span>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section>
+
+<h2>Featured Python Projects</h2>
+
+<div class="grid">
+
+<div class="project-card">
+
+<h3>Project 1</h3>
+
+<p>
+Describe the project here.
+</p>
+
+<p><strong>Skills Used:</strong> Variables, Loops</p>
+
+<p>
+#GitHub Repository</a>
+</p>
+
+</div>
+
+<div class="project-card">
+
+<h3>Project 2</h3>
+
+<p>
+Describe the project here.
+</p>
+
+<p><strong>Skills Used:</strong> Functions</p>
+
+<p>
+#
+</p>
+
+</div>
+
+<div class="project-card">
+
+<h3>Project 3</h3>
+
+<p>
+Describe the project here.
+</p>
+
+<p><strong>Skills Used:</strong> Lists, Dictionaries</p>
+
+<p>
+#>
+</p>
+
+</div>
+
+<div class="project-card">
+
+<h3>Project 4</h3>
+
+<p>
+Describe the project here.
+</p>
+
+<p><strong>Skills Used:</strong> File Processing</p>
+
+<p>
+#
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CODING CHALLENGES -->
+
+<section>
+
+<h2>Coding Challenges</h2>
+
+<div class="grid">
+
+<div class="project-card">
+
+<h3>FizzBuzz Challenge</h3>
+
+<p>
+Created a solution using loops and conditional statements.
+</p>
+
+</div>
+
+<div class="project-card">
+
+<h3>Palindrome Checker</h3>
+
+<p>
+Wrote a program to determine whether a word reads
+the same forward and backward.
+</p>
+
+</div>
+
+<div class="project-card">
+
+<h3>Prime Number Finder</h3>
+
+<p>
+Built a program to calculate prime numbers within a range.
+</p>
+
+</div>
+
+<div class="project-card">
+
+<h3>Weekly Coding Challenge</h3>
+
+<p>
+Add your latest challenge solution here each week.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PYTHON STATS -->
+
+<section>
+
+<h2>Python Stats</h2>
+
+<div class="card">
+
+<p>📌 Programs Written: 15</p>
+<p>📌 Projects Completed: 4</p>
+<p>📌 Coding Challenges Solved: 12</p>
+<p>📌 GitHub Repositories: 6</p>
+<p>📌 Courses Completed: 2</p>
+
+</div>
+
+</section>
+
+<!-- CURRENTLY LEARNING -->
+
+<section>
+
+<h2>Currently Learning</h2>
+
+<div class="card">
+
+<ul>
+<li>Object-Oriented Programming</li>
+<li>File Processing</li>
+<li>Version Control with Git</li>
+<li>Python Libraries</li>
+<li>Data Analysis</li>
+</ul>
+
+</div>
+
+</section>
+
+<!-- FUTURE GOALS & OPPORTUNITIES -->
+
+<section>
+
+    <h2>Future Goals & Opportunities</h2>
+
+    <div class="card">
+
+        <p>
+            🎯 Currently seeking internship opportunities and
+            hands-on experience in software development.
+        </p>
+
+        <br>
+
+        <ul>
+            <li>Transfer to a four-year university.</li>
+            <li>Strengthen Python programming skills.</li>
+            <li>Contribute to open-source projects.</li>
+            <li>Build a strong software development portfolio.</li>
+            <li>Prepare for a career in technology.</li>
+        </ul>
+
+    </div>
+
+</section>
+
+<!-- GITHUB -->
+
+<section>
+
+<!-- CONTACT INFORMATION -->
+
+<section>
+
+    <h2>Contact Information</h2>
+
+    <div class="card">
+
+        <p>📧 Email: yourname@email.com</p>
+
+        <p>🐙 GitHub: github.com/yourusername</p>
+
+        <p>💼 LinkedIn: Add after creating a profile</p>
+
+    </div>
+
+</section>
+
+<h2>GitHub Profile</h2>
+
+<div class="card">
+
+<p>
+
+Visit my GitHub profile:
+
+<br><br>
+
+YourUserName" target="_blank">
+https://github.com/YourUserName
+</a>
+
+</p>
+
+</div>
+
+</section>
+
+</div>
+
+<footer>
+
+<p>
+© 2026 Your Name | Python Portfolio
+</p>
+
+</footer>
+
+<script>
+
+const themeToggle = document.getElementById("themeToggle");
+
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+    themeToggle.checked = true;
+}
+
+themeToggle.addEventListener("change", () => {
+
+    document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+    } else {
+        localStorage.setItem("theme", "light");
+    }
+
+});
+
+</script>
+
+</body>
+</html>

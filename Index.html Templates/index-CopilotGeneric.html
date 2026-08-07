@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name | Student Portfolio</title>
+
+    <style>
+        :root {
+            --bg: #f4f7fb;
+            --card: white;
+            --text: #222;
+            --accent: #3b82f6;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode {
+            --bg: #121826;
+            --card: #1f2937;
+            --text: #f3f4f6;
+            --accent: #60a5fa;
+            --shadow: rgba(255,255,255,.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            transition: 0.3s;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--accent), #7c3aed);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: auto;
+            padding: 2rem 0;
+        }
+
+        .toggle-container {
+            text-align: right;
+            padding: 1rem;
+        }
+
+        button {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: .7rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: .9;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background-color: var(--card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px var(--shadow);
+            margin-top: 1rem;
+        }
+
+        h2 {
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+        }
+
+        .project-card {
+            background-color: var(--card);
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 4px 10px var(--shadow);
+        }
+
+        .project-card h3 {
+            margin-bottom: .5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="toggle-container">
+        <button onclick="toggleTheme()">🌙 Toggle Dark Mode</button>
+    </div>
+
+    <header>
+        <h1>Your Name Here</h1>
+        <p>Computer Science Student | Future Software Developer</p>
+    </header>
+
+    <div class="container">
+
+        <!-- ABOUT ME -->
+        <section>
+            <h2>About Me</h2>
+
+            <div class="card">
+                <p>
+                    Write a short introduction here.
+                    Talk about your goals, interests, and what
+                    inspired you to study Computer Science.
+                </p>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section>
+            <h2>Education</h2>
+
+            <div class="card">
+                <h3>Community College Name</h3>
+                <p>Associate Degree in Computer Science</p>
+                <p>Expected Graduation: Month Year</p>
+
+                <br>
+
+                <h3>Future University</h3>
+                <p>
+                    Add your transfer university here later.
+                </p>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section>
+            <h2>Technical Skills</h2>
+
+            <div class="card">
+                <ul>
+                    <li>Python</li>
+                    <li>HTML</li>
+                    <li>Git & GitHub</li>
+                    <li>Problem Solving</li>
+                    <li>Add More Skills Here</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- GITHUB -->
+        <section>
+            <h2>GitHub</h2>
+
+            <div class="card">
+                <p>
+                    GitHub Profile:
+                    https://github.com/YourUsername
+                       github.com/YourUsername
+                    </a>
+                </p>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section>
+            <h2>Projects</h2>
+
+            <div class="project-grid">
+
+                <div class="project-card">
+                    <h3>Project 1</h3>
+                    <p>
+                        Describe your project here.
+                    </p>
+                    #
+                </div>
+
+                <div class="project-card">
+                    <h3>Project 2</h3>
+                    <p>
+                        Describe your project here.
+                    </p>
+                    #
+                </div>
+
+                <div class="project-card">
+                    <h3>Project 3</h3>
+                    <p>
+                        Describe your project here.
+                    </p>
+                    #
+                </div>
+
+                <div class="project-card">
+                    <h3>Project 4</h3>
+                    <p>
+                        Describe your project here.
+                    </p>
+                    #Repository Link</a>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        © 2026 Your Name
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+
+</body>
+</html>
